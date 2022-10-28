@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { MisProyectosComponent } from './components/mis-proyectos/mis-proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
@@ -29,13 +32,13 @@ public class PersonaController {
         return "Persona creada";
     }
     
-    @DeleteMapping("/personas/borar/(id)")
+    @DeleteMapping("/personas/borrar/{id}")
      public String deletePersona(@PathVariable Long id){
          ipersonaService.deletePersona(id);
          return "Persona eliminada";
             }
     
-     @PutMapping("personas/editar/(id)")
+     @PutMapping("personas/editar/{id}")
         public Persona editPersona(@PathVariable Long id,
                 @RequestParam("nombre") String nuevoNombre,
                 @RequestParam("apellido") String nuevoApellido,
@@ -51,5 +54,12 @@ public class PersonaController {
             ipersonaService.savePersona(persona);
             return persona;
         }
+        
+        @GetMapping("/personas/traer/perfil")
+        public Persona findPersona(){
+            return ipersonaService.findPersona((long)1);
+        }
+        
+        
                 
     }
