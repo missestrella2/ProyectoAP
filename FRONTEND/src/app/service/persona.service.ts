@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { persona } from 'src/app/model/persona.model'
 import { HttpClient } from '@angular/common/http';
+//import { enviroment } from 'src/environments/environment'
 
 
 @Injectable({
